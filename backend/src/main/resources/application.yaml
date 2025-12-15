@@ -1,3 +1,19 @@
 spring:
   application:
     name: betterticketmaster
+  
+  # 🧵 Virtual Threads: Works best with Java 21+ on SB 3.5
+  threads:
+    virtual:
+      enabled: true
+
+  # 💾 MongoDB: Teammate's domain
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/ticket_platform
+
+  # 🐳 Docker Compose: Automated local environment
+  docker:
+    compose:
+      enabled: true
+      lifecycle-management: start_and_stop
