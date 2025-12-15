@@ -1,0 +1,21 @@
+services:
+  # --- Database - - -
+  mongodb:
+    image: 'mongo:latest'
+    container_name: ticket_mongo
+    ports:
+      - '27017:27017'
+    environment:
+      - MONGO_INITDB_DATABASE=ticket_platform
+    volumes:
+      - mongo_data:/data/db
+
+  # Used for the "10-minute hold" on seats to ensure concurrency
+  redis:
+    image: 'redis:alpine'
+    container_name: ticket_redis
+    ports:
+      - '6379:6379'
+
+volumes:
+  mongo_data:
