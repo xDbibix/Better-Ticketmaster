@@ -17,3 +17,8 @@ spring:
     compose:
       enabled: true
       lifecycle-management: start_and_stop
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
