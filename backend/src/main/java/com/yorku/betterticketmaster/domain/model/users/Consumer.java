@@ -10,4 +10,8 @@ import lombok.EqualsAndHashCode;
 @Document(collection="users")
 public class Consumer extends User{
     private ArrayList<String> ownedTicketIds = new ArrayList<>();
+
+    public Consumer(String id, String email, String password, String name, Role role){
+        super(id, email, password, name, role);
+    }
 }

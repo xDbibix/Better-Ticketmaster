@@ -8,9 +8,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.Data;
 /*
-Bookings dataset to track all current bookings, used for double booking protection and purchase timer
-
-
+Bookings dataset to track all current bookings, used for double booking 
+protection and purchase timer
 */
 @Data
 @Document(collection="bookings")
