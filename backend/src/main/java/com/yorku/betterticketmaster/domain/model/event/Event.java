@@ -27,4 +27,29 @@ public class Event {
     private String description; 
     //event banner
     private String imageUrl;
+
+    public Event(String id, String organizerId, String layoutId, String title, String venueName, LocalDateTime dateTime, double minResale, double maxResale, String description, String imageUrl) {
+        this.id = id;
+        this.organizerId = organizerId;
+        this.layoutId = layoutId;
+        this.title = title;
+        this.venueName = venueName;
+        this.dateTime = dateTime;
+        this.minResale = minResale;
+        this.maxResale = maxResale;
+        this.description = description;
+        this.imageUrl = imageUrl;
+    }
+
+    public boolean validResalePrice(double price) {
+        return price <= maxResale && price >= minResale;
+    }
+
+    public boolean eventStarted() {
+        return LocalDateTime.now().isAfter(dateTime);
+    }
+
+    public boolean eventNotStarted() {
+        return LocalDateTime.now().isBefore(dateTime);
+    }
 }

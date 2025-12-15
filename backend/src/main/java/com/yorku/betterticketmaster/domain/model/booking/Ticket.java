@@ -16,10 +16,33 @@ public class Ticket {
     private String eventId;
     private String ownerId; 
     private String buyerId; //Switch only if resold
-    private String purchasePrice; //Face Value of ticket
+    private double purchasePrice; //Face Value of ticket -> changed from string to double
     private LocalDateTime purchasedAt;
     private boolean resale = false;
     private double resalePrice;
     private String qrCode; 
+
+    public Ticket(String id, String seatId, String eventId, String ownerId, String buyerId, double purchasePrice, LocalDateTime purchasedAt, boolean resale, double resalePrice, String qrCode) {
+        this.id = id;
+        this.seatId = seatId;
+        this.eventId = eventId;
+        this.ownerId = ownerId;
+        this.buyerId = buyerId;
+        this.purchasePrice = purchasePrice;
+        this.purchasedAt = purchasedAt;
+        this.resale = resale;
+        this.resalePrice = resalePrice;
+        this.qrCode = qrCode;
+    }
+
+    public void ticketOwnerResale(String resaleOwner, double price) {
+        this.buyerId = resaleOwner;
+        this.resalePrice = price;
+        this.resale = true;
+    }
+
+    public boolean isResale() {
+        return resale;
+    }
 
 }
