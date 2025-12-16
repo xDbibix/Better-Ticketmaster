@@ -1,4 +1,4 @@
-package com.yorku.betterticketmaster.domain.repository;
+package com.yorku.betterticketmaster.domain.repository.inventory;
 
 import java.util.List;
 
