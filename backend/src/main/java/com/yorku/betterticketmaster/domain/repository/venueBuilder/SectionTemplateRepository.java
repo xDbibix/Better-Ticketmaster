@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
-import com.yorku.betterticketmaster.domain.model.venue.SeatTemplate;
+import com.yorku.betterticketmaster.domain.model.venue.SectionTemplate;
 @Repository
-public interface SeatTemplateRepository extends MongoRepository<SeatTemplate, String>{
-    List<SeatTemplate> findByLayoutId(String layoutId);
+public interface SectionTemplateRepository extends MongoRepository<SectionTemplate, String>{
+    List<SectionTemplate> findByLayoutId(String layoutId);
 }

@@ -20,11 +20,11 @@ public interface SeatRepository extends MongoRepository<Seat, String> {
     All seats based off section
     Used for section filtering
      */
-    List<Seat> findByEventIdSectionName(String eventId, String sectionName);
+    List<Seat> findByEventIdAndSectionName(String eventId, String sectionName);
 
     /*
     All seats based off status
     Used for booking, filtering
     */
-    List<Seat> findByEventIdStatus(String eventId, String status);
+    List<Seat> findByEventIdAndStatus(String eventId, String status);
 }

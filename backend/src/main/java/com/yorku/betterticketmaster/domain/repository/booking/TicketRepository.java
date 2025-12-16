@@ -11,5 +11,5 @@ import com.yorku.betterticketmaster.domain.model.booking.Ticket;
 @Repository
 public interface TicketRepository extends MongoRepository<Ticket, String>{
     List<Ticket> findByOwnerId(String ownerId);
-    List<Ticket> findByEventIdForResale(String eventId, boolean resale);
+    List<Ticket> findByEventIdAndResale(String eventId, boolean resale);
 }
