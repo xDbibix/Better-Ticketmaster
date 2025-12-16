@@ -5,8 +5,10 @@ import java.util.ArrayList;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Data
+@EqualsAndHashCode(callSuper=true)
 @Document(collection="users")
 public class Organizer extends User{
     private String company;
