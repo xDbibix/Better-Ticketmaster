@@ -1,7 +1,9 @@
 spring:
   application:
     name: betterticketmaster
-  
+  profiles:
+    active: dev
+    
   # 🧵 Virtual Threads: Works best with Java 21+ on SB 3.5
   threads:
     virtual:
