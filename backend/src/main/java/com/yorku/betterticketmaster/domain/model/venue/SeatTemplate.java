@@ -4,7 +4,10 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.Data;
-
+/**
+ * Seating chart for venue builder
+ * Specific to each layout
+ */
 @Data
 @Document(collection="seat_templates")
 public class SeatTemplate {
