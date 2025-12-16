@@ -11,4 +11,10 @@ public class Venue {
 
     private String venueName;
     private String location;
+
+    public Venue(String id, String venueName, String location){
+        this.id = id;
+        this.venueName = venueName;
+        this.location = location;
+    }
 }

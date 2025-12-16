@@ -34,14 +34,12 @@ public class Seat {
     @Version
     private Long version;
 
-    public Seat(String id, String layoutId, String section, char row, int seatNum, int x, int y, double price){
+    public Seat(String id, String layoutId, String section, char row, int seatNum, double price){
         this.id = id;
         this.layoutId = layoutId;
         this.section = section;
         this.row = row;
         this.seatNum = seatNum;
-        this.x = x;
-        this.y = y;
         this.price = price;
     }
 

@@ -21,4 +21,12 @@ public class SeatTemplate {
     */
     private int x;
     private int y;
+
+    public SeatTemplate(String id, String layoutId, String section, char row, int seatNum){
+        this.id = id;
+        this.layoutId = layoutId;
+        this.section = section;
+        this.row = row;
+        this.seatNum = seatNum;
+    }
 }
