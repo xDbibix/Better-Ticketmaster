@@ -10,6 +10,7 @@ import com.yorku.betterticketmaster.core.dto.venuebuilder.VenueBuilderView;
 import com.yorku.betterticketmaster.domain.model.venue.Layout;
 import com.yorku.betterticketmaster.domain.model.venue.SectionTemplate;
 import com.yorku.betterticketmaster.domain.model.venue.Venue;
+import com.yorku.betterticketmaster.domain.model.venue.VenueType;
 import com.yorku.betterticketmaster.domain.repository.venueBuilder.LayoutRepository;
 import com.yorku.betterticketmaster.domain.repository.venueBuilder.SectionTemplateRepository;
 import com.yorku.betterticketmaster.domain.repository.venueBuilder.VenueRepository;
@@ -39,7 +40,14 @@ public class VenueBuilderImplementation implements VenueBuilderService{
             .sections(sections)
             .build();
     }
-
+    @Override
+    public Venue createVenue(String venueName,String location, VenueType venueType){
+        Venue v = new Venue();
+        v.setVenueName(venueName);
+        v.setLocation(location);
+        v.setVenueType(venueType);
+        return venueRepo.save(v);
+    }
     @Override
     public Layout createLayout(String venueId, String name, String ImageUrl) {
         Layout l = new Layout();

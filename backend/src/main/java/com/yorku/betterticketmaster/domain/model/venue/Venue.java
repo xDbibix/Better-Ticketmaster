@@ -11,6 +11,7 @@ public class Venue {
 
     private String venueName;
     private String location; 
+    private VenueType venueType;
     private int canvasWidth;
     private int canvasHeight;
 }
