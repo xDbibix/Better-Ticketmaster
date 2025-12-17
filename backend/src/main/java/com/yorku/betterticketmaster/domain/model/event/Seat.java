@@ -34,9 +34,9 @@ public class Seat {
     @Version
     private Long version;
 
-    public Seat(String id, String layoutId, String section, char row, int seatNum, double price){
+    public Seat(String id, String eventId, String section, String row, int seatNum, double price){
         this.id = id;
-        this.layoutId = layoutId;
+        this.eventId = eventId;
         this.section = section;
         this.row = row;
         this.seatNum = seatNum;
