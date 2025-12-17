@@ -15,9 +15,15 @@ import com.yorku.betterticketmaster.domain.repository.inventory.EventRepository;
 
 public class UserService {
     private UserRepository userRepo;
+    private LayoutRepository layoutRepo;
+    private EventRepository eventRepo;
+    private TicketRepository ticketRepo;
 
-    public UserService(UserRepository userRepo) {
+    public UserService(UserRepository userRepo, LayoutRepository layoutRepo, EventRepository eventRepo, TicketRepository ticketRepo) {
         this.userRepo = userRepo;
+        this.layoutRepo = layoutRepo;
+        this.eventRepo = eventRepo;
+        this.ticketRepo = ticketRepo;
     }
 
     public User signUp(String email, String password, String name, Role role) {
@@ -64,12 +70,12 @@ public class UserService {
 
     public Layout createLayout(User user, Layout layout) {
         requireAdmin(user);
-        return LayoutRepository.save(layout);
+        return layoutRepo.save(layout);
     }
 
-    public Event createEAvent(User user, Event event) {
+    public Event createEvent(User user, Event event) {
         requireOrganizer(user);
-        return EventRepository.save(event);
+        return eventRepo.save(event);
     }
 
     public void manageEvent(User user, Event event) {
@@ -83,7 +89,7 @@ public class UserService {
         }
 
         ticket.setBuyerId(buyer);
-        return TicketRepository.save(ticket);
+        return ticketRepo.save(ticket);
     }
 
     public Ticket resellTicket(User user, Ticket ticket, double price) {
@@ -94,7 +100,7 @@ public class UserService {
 
         ticket.setResale(true);
         ticket.setResalePrice(price);
-        return TicketRepository.save(ticket);
+        return ticketRepo.save(ticket);
     }
 
     public User getUserById(String id) {
