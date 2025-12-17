@@ -1,7 +1,7 @@
 package com.yorku.betterticketmaster.domain.model.users;
 
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.TypeAlias;
