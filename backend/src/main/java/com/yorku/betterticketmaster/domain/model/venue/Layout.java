@@ -4,7 +4,10 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.Data;
-
+/**
+ * Venue Section Layout
+ * Specific to each venue
+ */
 @Data
 @Document(collection="layouts")
 public class Layout {

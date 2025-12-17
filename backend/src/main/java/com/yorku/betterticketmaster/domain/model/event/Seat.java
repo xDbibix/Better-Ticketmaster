@@ -12,16 +12,16 @@ public class Seat {
     @Id
     private String id; //MongoDB generates this, per seat id
 
-    private String layoutId; 
+    private String eventId;
     private String section;
-    private char row; //A-Z, AA-ZZ
-    private int seatNum;
+    private String row; //A-Z, AA-ZZ
+    private Integer seatNum; //Null if GA
     /*
     Coordinates for venue builder & frontend. Map seat to specific pixel on map, render circles at x and y
     Someone tell felix this 
     */
-    private int x;
-    private int y;
+    private Double x;
+    private Double y;
 
     private String status = "AVAILABLE"; // "AVAILABLE", "HELD", "SOLD" 
     private String type = "STANDARD"; // "STANDARD", "VIP", "RESALE"
