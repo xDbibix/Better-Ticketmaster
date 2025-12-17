@@ -9,10 +9,10 @@ const TestConnection = () => {
     axios.get('http://localhost:8080/actuator/health')
       .then(res => {
         if(res.data.status === "UP") {
-          setStatus("✅ Connected to Backend & MongoDB!");
+          setStatus(" onnected to Backend & MongoDB!");
         }
       })
-      .catch(err => setStatus("❌ Connection Failed. Is the backend running?"));
+      .catch(err => setStatus("Connection Failed. Is the backend running?"));
   }, []);
 
   return <div style={{ padding: '20px', border: '1px solid #ccc' }}>{status}</div>;
