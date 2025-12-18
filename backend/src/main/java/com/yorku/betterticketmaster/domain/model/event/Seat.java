@@ -33,4 +33,38 @@ public class Seat {
     */
     @Version
     private Long version;
+
+    public Seat(String id, String eventId, String section, String row, int seatNum, double price){
+        this.id = id;
+        this.eventId = eventId;
+        this.section = section;
+        this.row = row;
+        this.seatNum = seatNum;
+        this.price = price;
+    }
+
+    public void holdSeat(){
+        if(!("AVAILABLE".equals(this.status))){
+            throw new IllegalStateException("Only available seats can be held.");
+        }
+        this.status = "HELD";
+    }
+
+    public void sellSeat(){
+        if(!("HELD".equals(this.status))){
+            throw new IllegalStateException("Only held seats can be sold.");
+        }
+        this.status = "SOLD";
+    }
+
+    public void releaseSeat(){
+        if(!("HELD".equals(this.status))){
+            throw new IllegalStateException("Only held seats can be released.");
+        }
+        this.status = "AVAILABLE";
+    }
+
+    public boolean isAvailable(){
+        return "AVAILABLE".equals(this.status);
+    }
 }
