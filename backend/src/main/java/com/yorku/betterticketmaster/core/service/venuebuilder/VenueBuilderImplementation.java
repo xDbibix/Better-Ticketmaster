@@ -4,8 +4,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.springframework.stereotype.Service;
-
 import com.yorku.betterticketmaster.core.dto.venuebuilder.VenueBuilderView;
 import com.yorku.betterticketmaster.domain.model.venue.Layout;
 import com.yorku.betterticketmaster.domain.model.venue.SectionTemplate;
@@ -16,7 +14,7 @@ import com.yorku.betterticketmaster.domain.repository.venueBuilder.SectionTempla
 import com.yorku.betterticketmaster.domain.repository.venueBuilder.VenueRepository;
 
 import lombok.RequiredArgsConstructor;
-@Service
+
 @RequiredArgsConstructor
 public class VenueBuilderImplementation implements VenueBuilderService{
     private final VenueRepository venueRepo;
@@ -50,10 +48,7 @@ public class VenueBuilderImplementation implements VenueBuilderService{
     }
     @Override
     public Layout createLayout(String venueId, String name, String ImageUrl) {
-        Layout l = new Layout();
-        l.setVenueId(venueId);
-        l.setLayoutName(name);
-        l.setImageUrl(ImageUrl);
+        Layout l = new Layout(venueId, name, ImageUrl);
         return layoutRepo.save(l);
     }
 

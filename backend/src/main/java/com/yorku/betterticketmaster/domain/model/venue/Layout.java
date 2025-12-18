@@ -18,4 +18,9 @@ public class Layout {
     private String layoutName; // eg. Ateez2023
     private String imageUrl; //Layout image
 
+    public Layout(String venueId, String layoutName, String imageUrl) {
+        this.venueId = venueId;
+        this.layoutName = layoutName;
+        this.imageUrl = imageUrl;
+    }
 }

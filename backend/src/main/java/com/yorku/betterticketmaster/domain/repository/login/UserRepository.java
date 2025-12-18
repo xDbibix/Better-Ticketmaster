@@ -9,5 +9,5 @@ import com.yorku.betterticketmaster.domain.model.users.User;
 @Repository
 public interface UserRepository extends MongoRepository<User, String> {
     
-    Optional<String> findByEmail(String email);
+    Optional<User> findByEmail(String email);
 }

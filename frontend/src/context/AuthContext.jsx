@@ -1,23 +1,36 @@
-import { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from 'react'
+import api from '../api/axiosConfig'
 
-const AuthContext = createContext({
-  user: null,
-  setUser: () => {},
-});
-
+export const AuthContext = createContext(null)
 
 export function AuthProvider({ children }) {
-  const [user, setUser] = useState(null);
-  // user = { role: "CONSUMER" | "ORGANIZER" | "ADMIN", email }
+  const [user, setUser] = useState(null)
 
-  return (
-    <AuthContext.Provider value={{ user, setUser }}>
-      {children}
-    </AuthContext.Provider>
-  );
+  useEffect(() => {
+    api.get('/auth/me').then(r => setUser(r.data)).catch(() => setUser(null))
+  }, [])
+
+  const login = (email, password) =>
+    api.post('/auth/login', { email, password }).then(r => {
+      setUser(r.data)
+      return r.data
+    })
+
+  const register = (email, password, role) =>
+    api.post('/auth/register', { email, password, role }).then(r => {
+      setUser(r.data)
+      return r.data
+    })
+
+  const logout = () => api.post('/auth/logout').then(() => setUser(null))
+
+  return <AuthContext.Provider value={{ user, login, register, logout }}>{children}</AuthContext.Provider>
 }
 
-// 👇 THIS is what Navbar is trying to import
 export function useAuth() {
-  return useContext(AuthContext);
+  const ctx = useContext(AuthContext)
+  if (!ctx) {
+    throw new Error('useAuth must be used within an AuthProvider')
+  }
+  return ctx
 }

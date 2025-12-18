@@ -1,5 +1,23 @@
 {
-    "java.compile.nullAnalysis.mode": "automatic",
-    "java.jdt.ls.lombokSupport.enabled": true
-
+    "java.compile.nullAnalysis.mode": "disabled",
+    "java.jdt.ls.lombokSupport.enabled": true,
+    "java.jdt.ls.vmargs": "-Xmx2G -XX:+UseG1GC -XX:+UseStringDeduplication -javaagent:C:\\Users\\Charm\\.m2\\repository\\org\\projectlombok\\lombok\\1.18.42\\lombok-1.18.42.jar -Xbootclasspath/a:C:\\Users\\Charm\\.m2\\repository\\org\\projectlombok\\lombok\\1.18.42\\lombok-1.18.42.jar",
+    "java.jdt.ls.java.home": "C:\\Program Files\\Eclipse Adoptium\\jdk-25.0.1.8-hotspot",
+    "java.import.maven.enabled": true,
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "java.autobuild.enabled": false,
+    "java.debug.settings.forceBuildBeforeLaunch": false,
+    "java.debug.settings.enableRunDebugCodeLens": false,
+    "java.configuration.runtimes": [
+        {
+            "name": "JavaSE-25",
+            "path": "C:\\Program Files\\Eclipse Adoptium\\jdk-25.0.1.8-hotspot",
+            "default": true
+        }
+    ],
+    "java.project.resourceFilters": [
+        "node_modules",
+        ".git",
+        "**/dist/**"
+    ]
 }
