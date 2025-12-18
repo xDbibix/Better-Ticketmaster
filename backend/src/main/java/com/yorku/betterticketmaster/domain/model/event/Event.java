@@ -7,6 +7,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.Data;
 
+/**
+ * Event entity with scheduling, resale constraints, and status helpers.
+ */
 @Data
 @Document(collection="events")
 public class Event {

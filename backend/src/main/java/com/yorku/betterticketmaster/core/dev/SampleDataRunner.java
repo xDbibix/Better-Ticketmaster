@@ -29,6 +29,9 @@ import com.yorku.betterticketmaster.domain.repository.venueBuilder.VenueReposito
 
 import lombok.RequiredArgsConstructor;
 
+/**
+ * Seeds sample data in the dev profile.
+ */
 @Component
 @Profile("dev")
 @RequiredArgsConstructor
@@ -44,6 +47,9 @@ public class SampleDataRunner implements CommandLineRunner {
     private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     @Override
+    /**
+     * Execute seeding logic on application startup in dev.
+     */
     public void run(String... args) throws Exception {
         // Seed demo accounts (password: "password")
         if (userRepo.findByEmail("admin@btm.test").isEmpty()) {

@@ -30,6 +30,9 @@ import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 
+/**
+ * Admin API for managing layouts, events, tickets, and system resets.
+ */
 @RestController
 @RequestMapping("/api/admin")
 @RequiredArgsConstructor
@@ -66,6 +69,12 @@ public class AdminController {
     public record CreateLayoutRequest(String venueId, String layoutName, String imageUrl) {}
 
     @PostMapping("/layouts")
+    /**
+     * Create a layout for a venue.
+     * @param l request payload
+     * @param req HTTP request
+     * @return created layout or error
+     */
     public ResponseEntity<?> createLayout(@RequestBody CreateLayoutRequest l, HttpServletRequest req) {
         User u = currentUser(req);
         if (u == null || !u.isAdmin()) return ResponseEntity.status(403).body("Admin required");
@@ -74,6 +83,11 @@ public class AdminController {
     }
 
     @GetMapping("/events/pending")
+    /**
+     * List events pending approval.
+     * @param req HTTP request
+     * @return pending events or error
+     */
     public ResponseEntity<?> listPendingEvents(HttpServletRequest req) {
         User u = currentUser(req);
         if (u == null || !u.isAdmin()) return ResponseEntity.status(403).body("Admin required");
@@ -81,6 +95,12 @@ public class AdminController {
     }
 
     @PostMapping("/events/{id}/approve")
+    /**
+     * Approve a pending event.
+     * @param id event id
+     * @param req HTTP request
+     * @return approved event or error
+     */
     public ResponseEntity<?> approveEvent(@PathVariable String id, HttpServletRequest req) {
         User u = currentUser(req);
         if (u == null || !u.isAdmin()) return ResponseEntity.status(403).body("Admin required");
@@ -88,6 +108,12 @@ public class AdminController {
     }
 
     @PostMapping("/events/{id}/reject")
+    /**
+     * Reject a pending event.
+     * @param id event id
+     * @param req HTTP request
+     * @return rejected event or error
+     */
     public ResponseEntity<?> rejectEvent(@PathVariable String id, HttpServletRequest req) {
         User u = currentUser(req);
         if (u == null || !u.isAdmin()) return ResponseEntity.status(403).body("Admin required");
@@ -95,6 +121,11 @@ public class AdminController {
     }
 
     @GetMapping("/events")
+    /**
+     * List all events.
+     * @param req HTTP request
+     * @return all events or error
+     */
     public ResponseEntity<?> listAllEvents(HttpServletRequest req) {
         User u = currentUser(req);
         if (u == null || !u.isAdmin()) return ResponseEntity.status(403).body("Admin required");
@@ -112,6 +143,13 @@ public class AdminController {
     ) {}
 
     @PostMapping("/events/{id}/update")
+    /**
+     * Update event details.
+     * @param id event id
+     * @param body update payload
+     * @param req HTTP request
+     * @return updated event or error
+     */
     public ResponseEntity<?> updateEvent(@PathVariable String id, @RequestBody UpdateEventRequest body, HttpServletRequest req) {
         User u = currentUser(req);
         if (u == null || !u.isAdmin()) return ResponseEntity.status(403).body("Admin required");
@@ -154,6 +192,11 @@ public class AdminController {
      * Reset ONLY resale listings across ALL users (keeps ticket ownership intact).
      */
     @PostMapping("/reset/resales")
+    /**
+     * Reset all resale listings while keeping ownership.
+     * @param req HTTP request
+     * @return summary of cleared resales
+     */
     public ResponseEntity<?> resetAllResales(HttpServletRequest req) {
         User u = currentUser(req);
         if (u == null || !u.isAdmin()) return ResponseEntity.status(403).body("Admin required");
@@ -176,6 +219,11 @@ public class AdminController {
      *
      */
     @PostMapping("/reset/tickets")
+    /**
+     * Reset all tickets, bookings, and seat statuses.
+     * @param req HTTP request
+     * @return summary of resets performed
+     */
     public ResponseEntity<?> resetAllTickets(HttpServletRequest req) {
         User u = currentUser(req);
         if (u == null || !u.isAdmin()) return ResponseEntity.status(403).body("Admin required");

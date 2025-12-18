@@ -18,6 +18,9 @@ import com.yorku.betterticketmaster.domain.services.venuebuilder.VenueBuilderSer
 
 import lombok.RequiredArgsConstructor;
 // Lowkey had ai help me with this
+/**
+ * Dev runner to seed venue builder demo data and print diagnostics.
+ */
 @Component
 @Profile("dev")
 @RequiredArgsConstructor
@@ -28,6 +31,9 @@ public class VenueBuilderDevRunner implements CommandLineRunner {
     private final SectionTemplateRepository sectionRepository;
 
     @Override
+    /**
+     * Execute venue builder seeding and diagnostics in dev.
+     */
     public void run(String... args) {
 
         System.out.println("=== VENUE BUILDER DEV TEST START ===");

@@ -24,6 +24,9 @@ import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 
+/**
+ * Ticket endpoints for resale listings, purchase, transfer, and user tickets.
+ */
 @RestController
 @RequestMapping("/api/tickets")
 @RequiredArgsConstructor
@@ -43,12 +46,22 @@ public class TicketController {
     }
 
     @GetMapping("/resale")
+    /**
+     * List resale tickets for an event.
+     * @param eventId event identifier
+     * @return resale tickets
+     */
     public ResponseEntity<?> listResale(@RequestParam String eventId) {
         List<Ticket> list = bookingService.listResaleTickets(eventId);
         return ResponseEntity.ok(list);
     }
 
     @GetMapping("/mine")
+    /**
+     * List tickets owned by the current user.
+     * @param req HTTP request
+     * @return tickets for user or error
+     */
     public ResponseEntity<?> listMine(HttpServletRequest req) {
         User u = currentUser(req);
         if (u == null) return ResponseEntity.status(401).body("Login required");
@@ -58,6 +71,13 @@ public class TicketController {
     public record ResaleBody(double price) {}
 
     @PostMapping("/{id}/resell")
+    /**
+     * List a ticket for resale.
+     * @param id ticket id
+     * @param body resale payload
+     * @param req HTTP request
+     * @return updated ticket or error
+     */
     public ResponseEntity<?> resell(@PathVariable String id, @RequestBody ResaleBody body, HttpServletRequest req) {
         User u = currentUser(req);
         if (u == null) return ResponseEntity.status(401).body("Login required");
@@ -70,6 +90,12 @@ public class TicketController {
     }
 
     @PostMapping("/{id}/buy")
+    /**
+     * Purchase a resale ticket.
+     * @param id ticket id
+     * @param req HTTP request
+     * @return purchased ticket or error
+     */
     public ResponseEntity<?> buy(@PathVariable String id, HttpServletRequest req) {
         User u = currentUser(req);
         if (u == null) return ResponseEntity.status(401).body("Login required");
@@ -84,6 +110,13 @@ public class TicketController {
     public record TransferBody(String toEmail) {}
 
     @PostMapping("/{id}/transfer")
+    /**
+     * Transfer a ticket to another user.
+     * @param id ticket id
+     * @param body transfer payload
+     * @param req HTTP request
+     * @return updated ticket or error
+     */
     public ResponseEntity<?> transfer(@PathVariable String id, @RequestBody TransferBody body, HttpServletRequest req) {
         User u = currentUser(req);
         if (u == null) return ResponseEntity.status(401).body("Login required");

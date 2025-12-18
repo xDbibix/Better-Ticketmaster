@@ -22,6 +22,9 @@ import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 
+/**
+ * Event endpoints for listing, retrieval, creation, and closing.
+ */
 @RestController
 @RequestMapping("/api/events")
 @RequiredArgsConstructor
@@ -38,6 +41,13 @@ public class EventController {
     }
 
     @GetMapping
+    /**
+     * List events with optional query and mine filter.
+     * @param q search query
+     * @param mine only list events owned by current organizer
+     * @param req HTTP request
+     * @return filtered events or error
+     */
     public ResponseEntity<?> list(
         @RequestParam(name = "q", required = false) String q,
         @RequestParam(name = "mine", required = false) Boolean mine,
@@ -84,12 +94,23 @@ public class EventController {
     }
 
     @GetMapping("/{id}")
+    /**
+     * Get event by id.
+     * @param id event id
+     * @return event or 404
+     */
     public ResponseEntity<?> get(@PathVariable String id) {
         Optional<Event> e = eventService.getEvent(id);
         return e.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @PostMapping
+    /**
+     * Create or request creation of an event depending on role.
+     * @param e event payload
+     * @param req HTTP request
+     * @return created/requested event or error
+     */
     public ResponseEntity<?> create(@RequestBody Event e, HttpServletRequest req) {
         User u = currentUser(req);
         if (u == null) return ResponseEntity.status(401).body("Login required");
@@ -106,6 +127,12 @@ public class EventController {
     }
 
     @PostMapping("/{id}/close")
+    /**
+     * Close an event to further sales.
+     * @param id event id
+     * @param req HTTP request
+     * @return closed event or error
+     */
     public ResponseEntity<?> close(@PathVariable String id, HttpServletRequest req) {
         User u = currentUser(req);
         if (u == null) return ResponseEntity.status(401).body("Login required");

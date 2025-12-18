@@ -21,6 +21,9 @@ import com.yorku.betterticketmaster.domain.repository.inventory.SeatRepository;
 
 import lombok.RequiredArgsConstructor;
 
+/**
+ * Seat endpoints for listing by event and managing holds.
+ */
 @RestController
 @RequestMapping("/api/seats")
 @RequiredArgsConstructor
@@ -41,6 +44,11 @@ public class SeatController {
     }
 
     @GetMapping
+    /**
+     * List seats for an event, auto-releasing expired holds.
+     * @param eventId event identifier
+     * @return list of seats
+     */
     public ResponseEntity<List<Seat>> listByEvent(@RequestParam String eventId) {
         List<Seat> seats = seatRepo.findByEventId(eventId);
         Instant now = Instant.now();

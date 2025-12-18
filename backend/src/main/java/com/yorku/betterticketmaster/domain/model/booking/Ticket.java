@@ -7,6 +7,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.Data;
 
+/**
+ * Ticket entity representing ownership, resale state, and QR code.
+ */
 @Data
 @Document(collection="tickets")
 public class Ticket {

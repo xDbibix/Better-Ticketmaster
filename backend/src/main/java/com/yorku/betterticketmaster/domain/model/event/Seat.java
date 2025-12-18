@@ -8,6 +8,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.Data;
 
+/**
+ * Seat entity with optimistic locking and lifecycle controls (hold, sell, release).
+ */
 @Data
 @Document(collection = "seats")
 public class Seat {

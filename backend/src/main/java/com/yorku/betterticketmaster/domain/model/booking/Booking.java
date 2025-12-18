@@ -7,9 +7,9 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.Data;
-/*
-Bookings dataset to track all current bookings, used for double booking protection and purchase timers.
-*/
+/**
+ * Booking aggregate tracking seat reservations, totals, and expiry for anti-double-booking.
+ */
 @Data
 @Document(collection="bookings")
 public class Booking {

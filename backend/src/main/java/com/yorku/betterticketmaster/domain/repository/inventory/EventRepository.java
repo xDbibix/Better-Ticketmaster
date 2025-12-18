@@ -7,7 +7,15 @@ import org.springframework.stereotype.Repository;
 
 import com.yorku.betterticketmaster.domain.model.event.Event;
 
+/**
+ * Repository for events.
+ */
 @Repository
 public interface EventRepository extends MongoRepository<Event, String> {
-	Optional<Event> findByTitle(String title);
+    /**
+     * Find event by title.
+     * @param title event title
+     * @return optional event
+     */
+    Optional<Event> findByTitle(String title);
 }

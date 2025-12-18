@@ -16,6 +16,9 @@ import com.yorku.betterticketmaster.domain.repository.venueBuilder.SectionTempla
 import com.yorku.betterticketmaster.domain.repository.venueBuilder.VenueRepository;
 
 import lombok.RequiredArgsConstructor;
+/**
+ * Domain venue builder implementation providing validation and defaults.
+ */
 @Service
 @RequiredArgsConstructor
 public class VenueBuilderImplementation implements VenueBuilderService{

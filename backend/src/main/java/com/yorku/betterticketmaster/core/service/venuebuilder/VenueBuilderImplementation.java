@@ -15,6 +15,9 @@ import com.yorku.betterticketmaster.domain.repository.venueBuilder.VenueReposito
 
 import lombok.RequiredArgsConstructor;
 
+/**
+ * Core venue builder implementation managing layouts and sections.
+ */
 @RequiredArgsConstructor
 public class VenueBuilderImplementation implements VenueBuilderService{
     private final VenueRepository venueRepo;

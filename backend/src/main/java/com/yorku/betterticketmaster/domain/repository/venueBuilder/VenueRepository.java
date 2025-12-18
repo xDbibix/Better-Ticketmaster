@@ -7,7 +7,15 @@ import org.springframework.stereotype.Repository;
 
 import com.yorku.betterticketmaster.domain.model.venue.Venue;
 
+/**
+ * Repository for venues.
+ */
 @Repository
 public interface VenueRepository extends MongoRepository<Venue, String>{
-	List<Venue> findByVenueName(String venueName);
+    /**
+     * Find venues by name.
+     * @param venueName venue name
+     * @return venues
+     */
+    List<Venue> findByVenueName(String venueName);
 }

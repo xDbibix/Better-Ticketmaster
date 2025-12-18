@@ -9,6 +9,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * View model for the venue builder editor.
+ */
 @Data
 @Builder
 @NoArgsConstructor

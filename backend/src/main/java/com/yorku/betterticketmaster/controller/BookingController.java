@@ -20,6 +20,9 @@ import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 
+/**
+ * Booking API for creating, completing, transferring, and listing bookings.
+ */
 @RestController
 @RequestMapping("/api/bookings")
 @RequiredArgsConstructor
@@ -38,6 +41,12 @@ public class BookingController {
     public record CreateBookingRequest(String eventId, java.util.List<String> seatIds, double totalPrice) {}
 
     @PostMapping
+    /**
+     * Create a new booking for the current user.
+     * @param body booking request payload
+     * @param req HTTP request
+     * @return created booking or error
+     */
     public ResponseEntity<?> create(@RequestBody CreateBookingRequest body, HttpServletRequest req) {
         User u = currentUser(req);
         if (u == null) return ResponseEntity.status(401).body("Login required");
@@ -47,6 +56,12 @@ public class BookingController {
     }
 
     @PostMapping("/{id}/complete")
+    /**
+     * Complete a pending booking owned by the current user.
+     * @param id booking id
+     * @param req HTTP request
+     * @return completed booking or error
+     */
     public ResponseEntity<?> complete(@PathVariable String id, HttpServletRequest req) {
         User u = currentUser(req);
         if (u == null) return ResponseEntity.status(401).body("Login required");
@@ -58,6 +73,13 @@ public class BookingController {
     }
 
     @PostMapping("/{id}/transfer")
+    /**
+     * Request a booking transfer to another user.
+     * @param id booking id
+     * @param toUserId target user id
+     * @param req HTTP request
+     * @return booking with transfer requested or error
+     */
     public ResponseEntity<?> requestTransfer(@PathVariable String id, @RequestBody String toUserId, HttpServletRequest req) {
         User u = currentUser(req);
         if (u == null) return ResponseEntity.status(401).body("Login required");
@@ -69,6 +91,12 @@ public class BookingController {
     }
 
     @PostMapping("/{id}/transfer/complete")
+    /**
+     * Complete a pending booking transfer.
+     * @param id booking id
+     * @param req HTTP request
+     * @return booking after transfer completion or error
+     */
     public ResponseEntity<?> completeTransfer(@PathVariable String id, HttpServletRequest req) {
         User u = currentUser(req);
         if (u == null) return ResponseEntity.status(401).body("Login required");
@@ -81,6 +109,11 @@ public class BookingController {
     }
 
     @GetMapping
+    /**
+     * List bookings for the current user.
+     * @param req HTTP request
+     * @return list of bookings or error
+     */
     public ResponseEntity<?> listMine(HttpServletRequest req) {
         User u = currentUser(req);
         if (u == null) return ResponseEntity.status(401).body("Login required");

@@ -4,6 +4,9 @@ import org.springframework.data.annotation.Id;
 
 import lombok.Data;
 
+/**
+ * Represents a venue with name, location, type, and canvas dimensions.
+ */
 @Data
 public class Venue {
     @Id

@@ -12,9 +12,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/*
-Base user class
-*/
+/**
+ * Base user domain entity for authentication and authorization.
+ */
 @Data
 @Document(collection="users")
 @TypeAlias("user")

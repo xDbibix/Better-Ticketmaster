@@ -5,7 +5,48 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c3e17086-655c-40ac-956f-ede191c0b76f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/backend/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/backend/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/BetterticketmasterApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/BetterticketmasterApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/controller/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/controller/BookingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/controller/BookingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/controller/EventController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/controller/EventController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/controller/FrontendController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/controller/FrontendController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/controller/PingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/controller/PingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/controller/SeatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/controller/SeatController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/controller/TicketController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/controller/TicketController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/controller/VenueBuilderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/controller/VenueBuilderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/core/dev/SampleDataRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/core/dev/SampleDataRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/core/dev/VenueBuilderDevRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/core/dev/VenueBuilderDevRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/core/dto/venuebuilder/VenueBuilderView.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/core/dto/venuebuilder/VenueBuilderView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/core/service/venuebuilder/VenueBuilderImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/core/service/venuebuilder/VenueBuilderImplementation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/core/service/venuebuilder/VenueBuilderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/core/service/venuebuilder/VenueBuilderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/domain/model/booking/Booking.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/domain/model/booking/Booking.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/domain/model/booking/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/domain/model/booking/Ticket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/domain/model/event/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/domain/model/event/Event.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/domain/model/event/Seat.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/domain/model/event/Seat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/domain/model/users/Consumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/domain/model/users/Consumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/domain/model/users/Organizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/domain/model/users/Organizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/domain/model/users/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/domain/model/users/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/domain/model/venue/SectionType.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/domain/model/venue/SectionType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/domain/model/venue/Venue.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/domain/model/venue/Venue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/domain/model/venue/VenueType.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/domain/model/venue/VenueType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/domain/repository/booking/BookingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/domain/repository/booking/BookingRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/domain/repository/booking/TicketRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/domain/repository/booking/TicketRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/domain/repository/inventory/EventRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/domain/repository/inventory/EventRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/domain/repository/inventory/SeatRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/domain/repository/inventory/SeatRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/domain/repository/login/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/domain/repository/login/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/domain/repository/venueBuilder/LayoutRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/domain/repository/venueBuilder/LayoutRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/domain/repository/venueBuilder/SectionTemplateRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/domain/repository/venueBuilder/SectionTemplateRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/domain/repository/venueBuilder/VenueRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/domain/repository/venueBuilder/VenueRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/domain/services/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/domain/services/AuthService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/domain/services/BookingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/domain/services/BookingService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/domain/services/EventService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/domain/services/EventService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/domain/services/NotificationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/domain/services/NotificationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/domain/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/domain/services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/domain/services/venuebuilder/VenueBuilderImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/domain/services/venuebuilder/VenueBuilderImplementation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/domain/services/venuebuilder/VenueBuilderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/domain/services/venuebuilder/VenueBuilderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/security/AuthTokenStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/yorku/betterticketmaster/security/AuthTokenStore.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +73,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/andre/Code/school/year2/cssd_2101/Better-Ticketmaster/backend",
+    "last_opened_file_path": "/home/andre/Code/school/year2/cssd_2101/Better-Ticketmaster",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -60,6 +101,8 @@
       <workItem from="1766064933898" duration="893000" />
       <workItem from="1766072591680" duration="16000" />
       <workItem from="1766072615693" duration="15000" />
+      <workItem from="1766095574068" duration="840000" />
+      <workItem from="1766096481577" duration="349000" />
     </task>
     <servers />
   </component>

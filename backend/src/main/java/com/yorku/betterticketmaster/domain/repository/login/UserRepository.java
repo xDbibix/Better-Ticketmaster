@@ -6,8 +6,16 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 import com.yorku.betterticketmaster.domain.model.users.User;
+/**
+ * Repository for user accounts.
+ */
 @Repository
 public interface UserRepository extends MongoRepository<User, String> {
     
+    /**
+     * Find a user by email.
+     * @param email email address
+     * @return optional user
+     */
     Optional<User> findByEmail(String email);
 }
