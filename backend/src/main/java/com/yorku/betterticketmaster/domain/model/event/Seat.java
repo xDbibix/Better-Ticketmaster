@@ -12,15 +12,14 @@ import lombok.Data;
 @Document(collection = "seats")
 public class Seat {
     @Id
-    private String id;
+    private String id; //MongoDB generates this, per seat id
 
     private String eventId;
     private String section;
-    private String row;
+    private String row; //A-Z, AA-ZZ
     private int seatNum;
     private double price;
 
-    /** AVAILABLE | HELD | SOLD */
     private String status = "AVAILABLE";
 
     private Instant holdUntil;

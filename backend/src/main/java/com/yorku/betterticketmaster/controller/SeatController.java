@@ -28,6 +28,8 @@ public class SeatController {
     private final SeatRepository seatRepo;
     private final EventRepository eventRepo;
 
+    private static final long HOLD_MINUTES = 5;
+
     private static String seatLabel(Seat seat) {
         if (seat == null) return "";
         String section = seat.getSection() == null ? "" : seat.getSection();
@@ -55,7 +57,7 @@ public class SeatController {
         return ResponseEntity.ok(seats);
     }
     /**
-     * Hold seats for 10 minutes. Expects JSON: { seatIds: ["id1", "id2", ...] }
+     * Hold seats for 5 minutes. Expects JSON: { seatIds: ["id1", "id2", ...] }
      */
     @PostMapping("/hold")
     public ResponseEntity<?> holdSeats(@RequestBody Map<String, List<String>> body) {
@@ -103,7 +105,7 @@ public class SeatController {
             }
         }
 
-        Instant holdUntil = Instant.now().plus(10, ChronoUnit.MINUTES);
+        Instant holdUntil = Instant.now().plus(HOLD_MINUTES, ChronoUnit.MINUTES);
 
         // Validate first so we don't partially hold seats.
         for (String seatId : seatIds) {
@@ -152,7 +154,7 @@ public class SeatController {
             return ResponseEntity.status(409).body("Could not hold selected seats: " + e.getMessage());
         }
 
-        return ResponseEntity.ok("Seats held for 10 minutes");
+        return ResponseEntity.ok("Seats held for " + HOLD_MINUTES + " minutes");
     }
 
     /**

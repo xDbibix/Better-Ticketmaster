@@ -20,7 +20,7 @@ public class Booking {
     private List<String> seatIds;
     private double totalPrice;
     private LocalDateTime expiry; //For timer logic, LocalDateTime.now() > expiry, release seats
-    private String status; 
+    private String status; // PENDING, COMPLETED, EXPIRED. CANCELLED
 
     public static Booking createPending(String consumerId, String eventId, List<String> seatIds, double totalPrice) {
         Booking b = new Booking();

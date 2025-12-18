@@ -16,7 +16,7 @@ public class Ticket {
     private String eventId;
     private String ownerId; 
     private String buyerId; // Switch only if resold
-    private double purchasePrice; // Face value of ticket
+    private double purchasePrice; //Face Value of ticket -> changed from string to double
     private LocalDateTime purchasedAt;
     private boolean resale = false;
     private double resalePrice;
@@ -40,7 +40,7 @@ public class Ticket {
 
     public void transferTo(String newOwnerId) {
         ownerId = newOwnerId;
-        // Transfer is not a resale. Buyer stays as the original purchaser.
+        // Transfer is not a resale, buyer stays as the original purchaser
         resale = false;
         resalePrice = 0.0;
     }

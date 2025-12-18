@@ -6,6 +6,7 @@ import SeatMap from '../components/SeatMap'
 
 export default function Event() {
   const { id } = useParams()
+  const HOLD_SECONDS = 5 * 60
   const [event, setEvent] = useState(null)
   const [selectedSeats, setSelectedSeats] = useState([])
   const [holdTimeLeft, setHoldTimeLeft] = useState(0)
@@ -83,7 +84,7 @@ export default function Event() {
         .post('/seats/hold', { seatIds }, { signal: ctrl.signal })
         .then(() => {
           lastHeldSeatIdsRef.current = seatIds
-          setHoldTimeLeft(600)
+          setHoldTimeLeft(HOLD_SECONDS)
           holdTimerRef.current = setInterval(() => {
             setHoldTimeLeft(prev => {
               if (prev <= 1) {
