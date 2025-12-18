@@ -1,16 +1,16 @@
 package com.yorku.betterticketmaster.domain.model.users;
 
+import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;
-import java.util.ArrayList;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper=true)
 @Document(collection="users")
+@TypeAlias("consumer")
 public class Consumer extends User{
-    private ArrayList<String> ownedTicketIds = new ArrayList<>();
-
     public Consumer(String id, String email, String password, String name){
         super(id, email, password, name, Role.CONSUMER);
     }
@@ -23,6 +23,7 @@ public class Consumer extends User{
         removeOwnedTicket(ticketId);
     }
 
+    @Override
     public boolean ownsTicket(String ticketId){
         return super.ownsTicket(ticketId);
     }

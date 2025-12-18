@@ -7,7 +7,6 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 import com.yorku.betterticketmaster.core.dto.venuebuilder.VenueBuilderView;
-import com.yorku.betterticketmaster.core.service.venuebuilder.VenueBuilderService;
 import com.yorku.betterticketmaster.domain.model.venue.Layout;
 import com.yorku.betterticketmaster.domain.model.venue.SectionTemplate;
 import com.yorku.betterticketmaster.domain.model.venue.SectionType;
@@ -15,6 +14,7 @@ import com.yorku.betterticketmaster.domain.model.venue.Venue;
 import com.yorku.betterticketmaster.domain.model.venue.VenueType;
 import com.yorku.betterticketmaster.domain.repository.venueBuilder.LayoutRepository;
 import com.yorku.betterticketmaster.domain.repository.venueBuilder.SectionTemplateRepository;
+import com.yorku.betterticketmaster.domain.services.venuebuilder.VenueBuilderService;
 
 import lombok.RequiredArgsConstructor;
 // Lowkey had ai help me with this
@@ -32,44 +32,65 @@ public class VenueBuilderDevRunner implements CommandLineRunner {
 
         System.out.println("=== VENUE BUILDER DEV TEST START ===");
 
-        // Create Venue
-        Venue venue = venueBuilderService.createVenue(
-                "Scotiabank Arena",
-                "Toronto, ON",
-                VenueType.ARENA
+        // Avoid duplicating seed data on every restart.
+        // If the core layouts already exist, skip creating them again.
+        boolean alreadySeeded = layoutRepository.findAll().stream().anyMatch(l ->
+            "Basketball Default".equals(l.getLayoutName()) || "Symphony Default".equals(l.getLayoutName())
         );
+        if (alreadySeeded) {
+            System.out.println("Venue builder seed already present; skipping creation.");
+            System.out.println("=== VENUE BUILDER DEV TEST END ===");
+            return;
+        }
 
-        System.out.println("Created venue: " + venue.getId());
+        // Create Scotiabank Arena
+        Venue arena = venueBuilderService.createVenue(
+            "Scotiabank Arena",
+            "Toronto, ON",
+            VenueType.ARENA
+        );
+        System.out.println("Created venue: " + arena.getId());
+        Layout arenaLayout = new Layout(arena.getId(), "Basketball Default", "arena.png");
+        arenaLayout = layoutRepository.save(arenaLayout);
+        SectionTemplate arenaSection = new SectionTemplate();
+        arenaSection.setLayoutId(arenaLayout.getId());
+        arenaSection.setSectionName("Lower Bowl");
+        arenaSection.setRows(List.of("A", "B", "C", "D"));
+        arenaSection.setSeatsPerRow(20);
+        arenaSection.setSectionType(SectionType.SEATED);
+        sectionRepository.save(arenaSection);
+        System.out.println("Created Scotiabank Arena section: " + arenaSection.getSectionName());
 
-        // Create Layout
-        Layout layout = new Layout();
-        layout.setVenueId(venue.getId());
-        layout.setLayoutName("Basketball Default");
-        layout.setImageUrl("arena.png");
+        // Create Algorithm Symphony
+        Venue symphony = venueBuilderService.createVenue(
+            "Algorithm Symphony",
+            "Toronto, ON",
+            VenueType.ARENA
+        );
+        System.out.println("Created venue: " + symphony.getId());
+        Layout symphonyLayout = new Layout(symphony.getId(), "Symphony Default", "symphony.png");
+        symphonyLayout = layoutRepository.save(symphonyLayout);
+        SectionTemplate symphonySection = new SectionTemplate();
+        symphonySection.setLayoutId(symphonyLayout.getId());
+        symphonySection.setSectionName("Main Hall");
+        symphonySection.setRows(List.of("A", "B", "C"));
+        symphonySection.setSeatsPerRow(30);
+        symphonySection.setSectionType(SectionType.SEATED);
+        sectionRepository.save(symphonySection);
+        System.out.println("Created Algorithm Symphony section: " + symphonySection.getSectionName());
 
-        layout = layoutRepository.save(layout);
+        // Load Venue Builder Editor for both
+        VenueBuilderView view1 = venueBuilderService.loadEditor(arenaLayout.getId());
+        System.out.println("Loaded editor for Scotiabank Arena:");
+        System.out.println("Venue: " + view1.getVenueName());
+        System.out.println("Layout: " + view1.getLayoutName());
+        System.out.println("Sections: " + view1.getSections().size());
 
-        System.out.println("Created layout: " + layout.getId());
-
-        // Create Section Template
-        SectionTemplate section = new SectionTemplate();
-        section.setLayoutId(layout.getId());
-        section.setSectionName("Lower Bowl");
-        section.setRows(List.of("A", "B", "C", "D"));
-        section.setSeatsPerRow(20);
-        section.setSectionType(SectionType.SEATED);
-
-        sectionRepository.save(section);
-
-        System.out.println("Created section: " + section.getSectionName());
-
-        // Load Venue Builder Editor
-        VenueBuilderView view = venueBuilderService.loadEditor(layout.getId());
-
-        System.out.println("Loaded editor:");
-        System.out.println("Venue: " + view.getVenueName());
-        System.out.println("Layout: " + view.getLayoutName());
-        System.out.println("Sections: " + view.getSections().size());
+        VenueBuilderView view2 = venueBuilderService.loadEditor(symphonyLayout.getId());
+        System.out.println("Loaded editor for Algorithm Symphony:");
+        System.out.println("Venue: " + view2.getVenueName());
+        System.out.println("Layout: " + view2.getLayoutName());
+        System.out.println("Sections: " + view2.getSections().size());
 
         System.out.println("=== VENUE BUILDER DEV TEST END ===");
     }

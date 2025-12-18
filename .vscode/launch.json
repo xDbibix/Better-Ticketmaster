@@ -1,0 +1,15 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Backend: Run Spring Boot (BetterticketmasterApplication)",
+      "request": "launch",
+      "mainClass": "com.yorku.betterticketmaster.BetterticketmasterApplication",
+      "projectName": "betterticketmaster",
+      "cwd": "${workspaceFolder}/backend",
+      "preLaunchTask": "Backend: mvnw compile",
+      "args": "--spring.profiles.active=dev"
+    }
+  ]
+}

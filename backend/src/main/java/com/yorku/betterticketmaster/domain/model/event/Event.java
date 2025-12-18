@@ -16,6 +16,7 @@ public class Event {
     private String layoutId;
     private String title;
     private String venueName;
+    private String status; 
     private LocalDateTime dateTime;
 
     //Resale constraints
@@ -28,6 +29,8 @@ public class Event {
     //event banner
     private String imageUrl;
 
+    public Event() {}
+
     public Event(String id, String organizerId, String layoutId, String title, String venueName, LocalDateTime dateTime, double minResale, double maxResale, String description, String imageUrl) {
         this.id = id;
         this.organizerId = organizerId;
@@ -39,6 +42,7 @@ public class Event {
         this.maxResale = maxResale;
         this.description = description;
         this.imageUrl = imageUrl;
+        this.status = "APPROVED";
     }
 
     public boolean validResalePrice(double price) {
@@ -51,5 +55,9 @@ public class Event {
 
     public boolean eventNotStarted() {
         return LocalDateTime.now().isBefore(dateTime);
+    }
+
+    public boolean isClosed() {
+        return status != null && "CLOSED".equalsIgnoreCase(status.trim());
     }
 }

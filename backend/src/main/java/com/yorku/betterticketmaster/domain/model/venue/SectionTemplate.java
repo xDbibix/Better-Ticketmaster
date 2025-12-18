@@ -11,8 +11,8 @@ import lombok.Data;
 /**
  * Represents a SECTION
  */
-@Data
 @Document(collection="section_templates")
+@Data
 public class SectionTemplate {
     @Id
     private String id;
